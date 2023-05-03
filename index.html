@@ -1,14 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock Paper Scissors</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rock Paper Scissors</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
-    <button class="play-button">Play</button>
+  <h1 id="taunt">Can you beat Gerald the Corgi in Rock, Paper, Scissors?</h1>
+  <div class="game">
+    <div id="player-section">
+      <h2>Player</h2>
+      <div class="player-options">
+        <button class="player-btns" id="rock-button">Rock</button>
+        <button class="player-btns" id="paper-button">Paper</button>
+        <button class="player-btns" id="scissors-button">Scissors</button>
+      </div>
+    </div>
+    <div id="scoreboard">
+      <h3>Scoreboard</h3>
+      <strong id="current-score">0-0</strong>
+    </div>
+    <div id="computer-section">
+      <h2>Gerald</h2>
+      <img id="gerald" src="images/corgi.png">
+      <div class="options">
+        <button>Rock</button>
+        <button>Paper</button>
+        <button>Scissors</button>
+      </div>
+    </div>
+  </div>
+  <div id="hand-result"></div>
+  <div id="text-container">
+
+  </div>
 </body>
 </html>

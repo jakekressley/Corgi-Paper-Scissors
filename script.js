@@ -1,3 +1,7 @@
+let playerScore = 0;
+let computerScore = 0;
+const scoreboard = document.querySelector('#current-score');
+
 function getComputerChoice() {
     let randomNumber = Math.floor(Math.random() * 3);
     if (randomNumber === 0) {
@@ -9,57 +13,71 @@ function getComputerChoice() {
     }
 }
 
-function getPlayerChoice() {
-    const playerSelection = prompt("Please enter your choice: ");
-    return playerSelection[0].toUpperCase() + playerSelection.slice(1).toLowerCase();
-}
+const rockButton = document.querySelector('#rock-button');
+const paperButton = document.querySelector('#paper-button');
+const scissorsButton = document.querySelector('#scissors-button');
+let playerChoice;
+let choiceMade = false;
 
-function playRound(playerSelection, computerSelection) {    
+const playerChoices = document.querySelectorAll('.player-btns')
+
+playerChoices.forEach((choice) => {
+    choice.addEventListener('click', () => {
+        playerChoice = choice.textContent;
+        const computerChoice = getComputerChoice()
+        game(playerChoice, computerChoice);
+    })
+})
+
+const handResult = document.querySelector('#hand-result');
+handResult.classList.add('hand-result');
+
+function playRound(playerSelection, computerSelection) {  
+    
     if ((playerSelection == 'Rock' && computerSelection == 'Scissors')
     || (playerSelection == 'Paper' && computerSelection == 'Rock')
-    || (playerSelection == 'Scissors' && computerSelection == 'Paper'))
-        return "You Win! " + playerSelection + " beats " + computerSelection + "!";
+    || (playerSelection == 'Scissors' && computerSelection == 'Paper')) {
+        
+            handResult.textContent = `You chose ${playerSelection} and Gerald chose ${computerSelection}. You won this hand.`
+            playerScore++;
+            scoreboard.textContent = `${playerScore} - ${computerScore}`;
+    }
     
     else if ((computerSelection == 'Rock' && playerSelection == 'Scissors')
     || (computerSelection == 'Paper' && playerSelection == 'Rock')
-    || (computerSelection == 'Scissors' && playerSelection == 'Paper'))
-        return "You Lose! " + computerSelection + " beats " + playerSelection + "!";
-    
-    else
-        return "It's a tie";
-}
+    || (computerSelection == 'Scissors' && playerSelection == 'Paper')) {
 
-function helperResults (playerSelection, computerSelection) {
-    console.log("You chose: " + playerSelection);
-    console.log("Computer chose: " + computerSelection);
-}
+            handResult.textContent = `You chose ${playerSelection} and Gerald chose ${computerSelection}. You won this hand.`
 
-function game() {
-    let playerScore = 0;
-    let computerScore = 0;
-    while (playerScore < 5 && computerScore < 5) {
-        const playerSelection = getPlayerChoice();
-        const computerSelection = getComputerChoice();
-        
-        helperResults(playerSelection, computerSelection);
-
-        result = playRound(playerSelection, computerSelection);
-        console.log(result)
-        if (result.slice(0, 7) == "You Win")
-            playerScore++;
-        else if (result.slice(0, 8) == "You Lose")
-            computerScore++;
-        else
-            continue;
-        
-        console.log("Your score: " + playerScore);
-        console.log("Computer score: " + computerScore);
+            computerScore++;    
+            scoreboard.textContent = `${playerScore} - ${computerScore}`;
     }
-    if (playerScore == 5) console.log("Congratulations! You have beaten the computer");
-    if (computerScore == 5) console.log("Im sorry. You have lost to the computer");
+
 }
 
-const playButton = document.querySelector('.play-button');
-playButton.addEventListener('click', () => {
-    console.log(game());
-});
+function game(playerChoice, computerChoice) {
+        playRound(playerChoice, computerChoice)
+
+    const resultContainer = document.querySelector('#text-container');
+    if (playerScore == 5) {
+        const playerWins = document.createElement('p');
+        playerWins.classList.add('player-wins');
+        playerWins.textContent = "I guess you beat me this time.";
+        resultContainer.append(playerWins);
+        reset();
+    }
+    if (computerScore == 5) {
+        const computerWins = document.createElement('p');
+        computerWins.classList.add('computer-wins');
+        computerWins.textContent = "I win hehehe.";
+        resultContainer.append(computerWins);
+        reset();
+    }
+
+}
+
+function reset() {
+    computerScore = 0;
+    playerScore = 0;
+
+}
