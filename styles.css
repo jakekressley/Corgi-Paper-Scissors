@@ -2,6 +2,12 @@ body {
     background-color: lightpink;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#instructions {
+    display: none;
 }
 
 .game {
@@ -9,6 +15,7 @@ body {
     justify-content: center;
     align-items: center;
     gap: 20px;
+    visibility: hidden;
 }
 
 #player-section {
@@ -36,6 +43,10 @@ button {
     padding: 16px 32px;   
     border-radius: 8px;
     cursor: pointer;
+}
+
+#play-again {
+    visibility: hidden;
 }
 
 #gerald {

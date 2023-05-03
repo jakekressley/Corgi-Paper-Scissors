@@ -1,6 +1,19 @@
 let playerScore = 0;
 let computerScore = 0;
+const display = document.querySelector('.game');
 const scoreboard = document.querySelector('#current-score');
+const playButton = document.querySelector('#start-button');
+const taunt = document.querySelector('#taunt');
+const instructions = document.querySelector('#instructions');
+const geraldDialogue = document.querySelector('#gerald-dialogue');
+
+playButton.addEventListener('click', () => {
+    display.style.visibility = 'visible';
+    playButton.style.display = 'none';
+    taunt.style.display = 'none';
+    instructions.style.display = 'flex';
+    geraldDialogue.textContent = "I hope you're ready";
+})
 
 function getComputerChoice() {
     let randomNumber = Math.floor(Math.random() * 3);
@@ -32,13 +45,17 @@ playerChoices.forEach((choice) => {
 const handResult = document.querySelector('#hand-result');
 handResult.classList.add('hand-result');
 
+const geraldLossTaunts = ['I gave you that one.', "I'm not even trying.", "So what? that's only one point.", "Lucky guess.", "You're still not as smart as me."]
+const geraldWinTaunts = ["You're so predictable.", "I can read your every move.", "I'm used to winning.", "This game is so simple.", "You'll never beat me."]
+
 function playRound(playerSelection, computerSelection) {  
     
     if ((playerSelection == 'Rock' && computerSelection == 'Scissors')
     || (playerSelection == 'Paper' && computerSelection == 'Rock')
     || (playerSelection == 'Scissors' && computerSelection == 'Paper')) {
         
-            handResult.textContent = `You chose ${playerSelection} and Gerald chose ${computerSelection}. You won this hand.`
+            handResult.textContent = `You chose ${playerSelection.toLowerCase()} and Gerald chose ${computerSelection.toLowerCase()}. You won this hand.`
+            geraldDialogue.textContent = geraldLossTaunts[Math.floor(Math.random() * geraldLossTaunts.length)];
             playerScore++;
             scoreboard.textContent = `${playerScore} - ${computerScore}`;
     }
@@ -47,31 +64,50 @@ function playRound(playerSelection, computerSelection) {
     || (computerSelection == 'Paper' && playerSelection == 'Rock')
     || (computerSelection == 'Scissors' && playerSelection == 'Paper')) {
 
-            handResult.textContent = `You chose ${playerSelection} and Gerald chose ${computerSelection}. You won this hand.`
-
+            handResult.textContent = `You chose ${playerSelection.toLowerCase()} and Gerald chose ${computerSelection.toLowerCase()}. You lost this hand.`;
+            geraldDialogue.textContent = geraldWinTaunts[Math.floor(Math.random() * geraldLossTaunts.length)];
             computerScore++;    
             scoreboard.textContent = `${playerScore} - ${computerScore}`;
     }
+    else
+    {
+        handResult.textContent = `You and Gerald both chose ${computerSelection.toLowerCase()}. It's a tie! Please reselect.`;
+        geraldDialogue.textContent = 'Ties are lame.'
+    }
+
 
 }
 
-function game(playerChoice, computerChoice) {
-        playRound(playerChoice, computerChoice)
+const resultContainer = document.querySelector('#result-container');
+const playAgain = document.querySelector('#play-again');
+const playerSection = document.querySelector('#player-section');
+const computerOptions = document.querySelector('.computer-options')
 
-    const resultContainer = document.querySelector('#text-container');
+
+playAgain.addEventListener('click', reset);
+
+function game(playerChoice, computerChoice) {
+    playRound(playerChoice, computerChoice)
+
     if (playerScore == 5) {
         const playerWins = document.createElement('p');
         playerWins.classList.add('player-wins');
-        playerWins.textContent = "I guess you beat me this time.";
+        playerWins.textContent = "You Win!";
         resultContainer.append(playerWins);
-        reset();
+        playAgain.style.visibility = "visible"
+        playerSection.style.display = 'none';
+        computerOptions.style.display = 'none';
+        geraldDialogue.textContent = 'Whatever, this game is stupid anyway.'
     }
     if (computerScore == 5) {
         const computerWins = document.createElement('p');
         computerWins.classList.add('computer-wins');
-        computerWins.textContent = "I win hehehe.";
+        computerWins.textContent = "You Lose!";
         resultContainer.append(computerWins);
-        reset();
+        playAgain.style.visibility = "visible"
+        playerSection.style.display = 'none';
+        computerOptions.style.display = 'none';
+        geraldDialogue.textContent = 'Hehehehehe I win!';
     }
 
 }
@@ -79,5 +115,7 @@ function game(playerChoice, computerChoice) {
 function reset() {
     computerScore = 0;
     playerScore = 0;
-
+    scoreboard.textContent = `${playerScore} - ${computerScore}`;
+    handResult.textContent = '';
+    resultContainer.textContent = '';
 }
