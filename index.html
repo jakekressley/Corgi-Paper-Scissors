@@ -10,8 +10,12 @@
 </head>
 <body>
   <h1 id="taunt">Would you like to play Gerald the Corgi in Rock, Paper, Scissors?</h1>
-  <button id="start-button">Play</button>
+  <button id="play-button">Play</button>
   <h1 id="instructions">Select Rock, Paper, or Scissors.</h1>
+  <div id="scoreboard">
+    <h3>Scoreboard</h3>
+    <strong id="current-score">0-0</strong>
+  </div>
   <div class="game">
     <div id="player-section">
       <h2>Player</h2>
@@ -21,21 +25,14 @@
         <button class="player-btns" id="scissors-button">Scissors</button>
       </div>
     </div>
-    <div id="scoreboard">
-      <h3>Scoreboard</h3>
-      <strong id="current-score">0-0</strong>
-    </div>
     <div id="computer-section">
       <h2>Gerald</h2>
-      <img id="gerald" src="images/corgi.png">
-      <div class="computer-options">
-        <button>Rock</button>
-        <button>Paper</button>
-        <button>Scissors</button>
+      <div id="gerald-section">
+        <img id="gerald" src="images/corgi.png">
+        <div id="gerald-dialogue"></div>
       </div>
     </div>
   </div>
-  <div id="gerald-dialogue"></div>
   <div id="hand-result"></div>
   <div id="result-container">
 

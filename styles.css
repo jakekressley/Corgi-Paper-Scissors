@@ -1,40 +1,10 @@
 body {
-    background-color: lightpink;
+    background-color: #2c2e31;
+    color: white;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-#instructions {
-    display: none;
-}
-
-.game {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    visibility: hidden;
-}
-
-#player-section {
-    background-color: white;
-}
-
-#scoreboard {
-    background-color: blue;
-}
-
-#computer-section {
-    display: flex;
-    flex-direction: column;
-    background-color: red;
-    align-items: center;
-}
-
-.options {
-    display: flex;
 }
 
 button {
@@ -45,11 +15,111 @@ button {
     cursor: pointer;
 }
 
-#play-again {
-    visibility: hidden;
+h2 {
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 32px;
+}
+
+#taunt {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#play-button {
+    background-color: white;
+    padding: 20px 60px;
+    font-size: 22px;
+    border-radius: 8px;
+}
+
+#play-button:hover {
+    padding: 24px 80px;
+}
+
+#instructions {
+    display: none;
+}
+
+.game {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 50px;
+    /*visibility: hidden;*/
+}
+
+#player-section,
+#computer-section,
+#scoreboard {
+    border: 3px solid white;
+    border-radius: 16px;
+}
+
+
+.player-options {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.player-btns {
+    text-align: center;
+}
+
+#rock-button {
+    background-image: url("images/rock.png");
+  }
+  
+  #paper-button {
+    background-image: url("images/paper.png");
+  }
+  
+  #scissors-button {
+    background-image: url("images/scissors.png");
+  }
+  
+.player-btns:hover {
+    padding: 20px 36px;
+}
+
+#computer-section,
+#player-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 400px;
+    width: 400px;
+    padding: 20px;
+}
+
+#gerald-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    height: 200px;
+    margin: 0;
+    padding: 0;
 }
 
 #gerald {
-    width: 50px;
-    height: 50px;
+    width: 200px;
+    height: 200px;
+}
+
+#gerald-dialogue {
+    padding: 30px 20px;
+    font-size: 30px;
+    background-color: white;
+    color: #2c2e31;
+}
+
+.options {
+    display: flex;
+}
+
+#play-again {
+    visibility: hidden;
 }

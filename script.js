@@ -2,18 +2,12 @@ let playerScore = 0;
 let computerScore = 0;
 const display = document.querySelector('.game');
 const scoreboard = document.querySelector('#current-score');
-const playButton = document.querySelector('#start-button');
+const playButton = document.querySelector('#play-button');
 const taunt = document.querySelector('#taunt');
 const instructions = document.querySelector('#instructions');
 const geraldDialogue = document.querySelector('#gerald-dialogue');
 
-playButton.addEventListener('click', () => {
-    display.style.visibility = 'visible';
-    playButton.style.display = 'none';
-    taunt.style.display = 'none';
-    instructions.style.display = 'flex';
-    geraldDialogue.textContent = "I hope you're ready";
-})
+playButton.addEventListener('click', start)
 
 function getComputerChoice() {
     let randomNumber = Math.floor(Math.random() * 3);
@@ -96,7 +90,6 @@ function game(playerChoice, computerChoice) {
         resultContainer.append(playerWins);
         playAgain.style.visibility = "visible"
         playerSection.style.display = 'none';
-        computerOptions.style.display = 'none';
         geraldDialogue.textContent = 'Whatever, this game is stupid anyway.'
     }
     if (computerScore == 5) {
@@ -106,7 +99,6 @@ function game(playerChoice, computerChoice) {
         resultContainer.append(computerWins);
         playAgain.style.visibility = "visible"
         playerSection.style.display = 'none';
-        computerOptions.style.display = 'none';
         geraldDialogue.textContent = 'Hehehehehe I win!';
     }
 
@@ -117,5 +109,16 @@ function reset() {
     playerScore = 0;
     scoreboard.textContent = `${playerScore} - ${computerScore}`;
     handResult.textContent = '';
-    resultContainer.textContent = '';
+    resultContainer.textContent = ''; 
+    playerSection.style.display = 'flex';
+    start();
+}
+
+function start() {
+    display.style.visibility = 'visible';
+    playButton.style.display = 'none';
+    taunt.style.display = 'none';
+    instructions.style.display = 'flex';
+    playAgain.style.visibility = '';
+    geraldDialogue.textContent = "I hope you're ready";
 }
