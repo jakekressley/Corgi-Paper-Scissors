@@ -77,7 +77,6 @@ const playAgain = document.querySelector('#play-again');
 const playerSection = document.querySelector('#player-section');
 const computerOptions = document.querySelector('.computer-options')
 
-
 playAgain.addEventListener('click', reset);
 
 function game(playerChoice, computerChoice) {
@@ -90,7 +89,8 @@ function game(playerChoice, computerChoice) {
         resultContainer.append(playerWins);
         playAgain.style.visibility = "visible"
         playerSection.style.display = 'none';
-        geraldDialogue.textContent = 'Whatever, this game is stupid anyway.'
+        geraldDialogue.textContent = 'Whatever, this game is stupid anyway.';
+        instructions.style.display = 'none';
     }
     if (computerScore == 5) {
         const computerWins = document.createElement('p');
@@ -100,6 +100,7 @@ function game(playerChoice, computerChoice) {
         playAgain.style.visibility = "visible"
         playerSection.style.display = 'none';
         geraldDialogue.textContent = 'Hehehehehe I win!';
+        instructions.style.display = 'none';
     }
 
 }
@@ -121,4 +122,5 @@ function start() {
     instructions.style.display = 'flex';
     playAgain.style.visibility = '';
     geraldDialogue.textContent = "I hope you're ready";
+    scoreboard.style.visibility = 'visible'
 }
