@@ -1,14 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock Paper Scissors</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rock Paper Scissors</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
-    <button class="play-button">Play</button>
+  <h1 id="taunt">Would you like to play Gerald the Corgi in Rock, Paper, Scissors?</h1>
+  <button id="play-button">Play</button>
+  <h1 id="instructions">Select Rock, Paper, or Scissors.</h1>
+  <div id="result-container"></div>
+  <div id="scoreboard">
+    <strong id="current-score">0-0</strong>
+  </div>
+  <div class="game">
+    <div id="player-section">
+      <h2>Player</h2>
+      <div class="player-options">
+        <button class="player-btns" id="rock-button">Rock</button>
+        <button class="player-btns" id="paper-button">Paper</button>
+        <button class="player-btns" id="scissors-button">Scissors</button>
+      </div>
+    </div>
+    <div id="computer-section">
+      <h2>Gerald</h2>
+      <div id="gerald-section">
+        <img id="gerald" src="images/corgi.png">
+        <div id="gerald-dialogue"></div>
+      </div>
+    </div>
+  </div>
+  <div id="hand-result"></div>
+  <button id="play-again">Play Again?</button>
 </body>
 </html>

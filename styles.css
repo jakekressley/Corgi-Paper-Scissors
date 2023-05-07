@@ -1,17 +1,162 @@
-.grandparent {
-    background-color: red;
+body {
+    background-color: #e09f26; /*#2c2e31*/
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+}
+
+h2 {
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 32px;
+}
+
+#taunt {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#play-button,
+#play-again {
+    background-color: white;
+    border: solid 1px white;
+    color: #E89E15;
+    border-radius: 12px;
+    padding: 24px;
+    cursor: pointer;
+    font-size: 24px
+}
+
+#play-button:hover,
+#play-again:hover {
+    padding: 26px;
+    font-size: 26px;
+}
+
+#instructions {
+    display: none;
+}
+
+.game {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 50px;
+    gap: 100px;
+    padding-top: 0;
+    visibility: hidden;
+}
+
+#player-section,
+#computer-section,
+#scoreboard {
+    border-radius: 16px;
+    background-color: #e09f26;
+    color: white;
+}
+
+
+.player-options {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.player-btns {
+    text-align: center;
+    border: none;
+    padding: 64px;   
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.player-btns:hover {
+    border: 2px solid #FFC517;
+    transform: scale(1.1)
+}
+
+#rock-button {
+    background: transparent url("images/rock.png") no-repeat center center;
+}
+  
+#paper-button {
+    background: transparent url("images/paper.png") no-repeat center center;
+}
+  
+#scissors-button {
+    background: transparent url("images/scissors.png") no-repeat center center;
+}
+
+#rock-button,
+#paper-button,
+#scissors-button {
+    background-size: contain;
+    font-size: 0;
+}
+
+#computer-section,
+#player-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
     height: 300px;
-    width: 300px;
+    width: 600px;
+    padding: 20px;
+}
+#scoreboard {
+    margin-top: 40px;
+    visibility: hidden;
 }
 
-.parent {
-    background-color: blue;
+#current-score {
+    font-size: 100px;
+    font-family: 'Orbitron', sans-serif;
+}
+
+#gerald-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
     height: 200px;
-    width: 200px
+    margin: 0;
+    padding: 0;
 }
 
-.child {
-    background-color: green;
+#gerald {
+    width: 200px;
+    height: 200px;
+}
+
+#gerald-dialogue {
+    padding: 40px;
+    font-size: 24px;
+    background-color: white;
+    color: #2c2e31;
+    border-radius: 50%;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.hand-result {
+    font-size: 40px;
+}
+
+#options {
+    display: flex;
+}
+
+#result-container {
+    font-size: 64px;
+    font-weight: bold;
     height: 100px;
-    width: 100px;
+    margin-bottom: 50px;
+}
+
+#play-again {
+    visibility: hidden;
 }
