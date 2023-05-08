@@ -87,20 +87,24 @@ function game(playerChoice, computerChoice) {
         playerWins.classList.add('player-wins');
         playerWins.textContent = "You Win!";
         resultContainer.append(playerWins);
+        resultContainer.style.display = 'block';
         playAgain.style.visibility = "visible"
         playerSection.style.display = 'none';
         geraldDialogue.textContent = 'Whatever, this game is stupid anyway.';
         instructions.style.display = 'none';
+        handResult.style.display = 'none';
     }
     if (computerScore == 5) {
         const computerWins = document.createElement('p');
         computerWins.classList.add('computer-wins');
-        computerWins.textContent = "You Lose!";
+        computerWins.textContent = "You Lost!";
         resultContainer.append(computerWins);
+        resultContainer.style.display = 'block';
         playAgain.style.visibility = "visible"
         playerSection.style.display = 'none';
         geraldDialogue.textContent = 'Hehehehehe I win!';
         instructions.style.display = 'none';
+        handResult.style.display = 'none';
     }
 
 }
@@ -109,8 +113,10 @@ function reset() {
     computerScore = 0;
     playerScore = 0;
     scoreboard.textContent = `${playerScore} - ${computerScore}`;
+    handResult.style.display = 'block';
     handResult.textContent = '';
-    resultContainer.textContent = ''; 
+    resultContainer.textContent = '';
+    resultContainer.style.display = 'none'; 
     playerSection.style.display = 'flex';
     start();
 }
@@ -122,5 +128,6 @@ function start() {
     instructions.style.display = 'flex';
     playAgain.style.visibility = '';
     geraldDialogue.textContent = "I hope you're ready";
-    scoreboard.style.visibility = 'visible'
+    scoreboard.style.visibility = 'visible';
+    resultContainer.style.display = 'none';
 }
