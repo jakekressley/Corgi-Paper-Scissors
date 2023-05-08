@@ -16,6 +16,13 @@ h2 {
 
 #taunt {
     font-family:Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+}
+
+#start-screen-gerald {
+    margin-top: 40px;
+    width: 30vw;
+    height: auto;
 }
 
 #play-button,
@@ -38,6 +45,7 @@ h2 {
 
 #instructions {
     display: none;
+    text-align: center;
 }
 
 .game {
@@ -177,6 +185,7 @@ h2 {
         gap: 0;
         flex-direction: column;
         padding: 0;
+        transform: scale (.9)
     }
     body {
         transform: scale(0.9);
@@ -185,6 +194,14 @@ h2 {
 
     #instructions {
         font-size: 24px;
+    }
+
+    .hand-result {
+        font-size: 28px;
+    }
+
+    #taunt {
+        font-size: 20px;
     }
 }
 
@@ -201,6 +218,10 @@ h2 {
     }
 
     #instructions {
+        font-size: 22px;
+    }
+
+    .hand-result {
         font-size: 24px;
     }
 }
@@ -220,4 +241,8 @@ h2 {
     #instructions {
         font-size: 20px;
     }
+    .hand-result {
+        font-size: 20px;
+    }
+
 }

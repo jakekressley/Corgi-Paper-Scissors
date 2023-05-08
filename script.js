@@ -7,6 +7,7 @@ const taunt = document.querySelector('#taunt');
 const instructions = document.querySelector('#instructions');
 const geraldDialogue = document.querySelector('#gerald-dialogue');
 const gerald = document.querySelector('#gerald-section');
+const startingGerald = document.querySelector('#start-screen-gerald');
 
 playButton.addEventListener('click', start)
 
@@ -131,4 +132,5 @@ function start() {
     geraldDialogue.textContent = "I hope you're ready";
     scoreboard.style.visibility = 'visible';
     resultContainer.style.display = 'none';
+    startingGerald.style.display = 'none';
 }
