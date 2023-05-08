@@ -6,6 +6,9 @@ const playButton = document.querySelector('#play-button');
 const taunt = document.querySelector('#taunt');
 const instructions = document.querySelector('#instructions');
 const geraldDialogue = document.querySelector('#gerald-dialogue');
+const gerald = document.querySelector('#gerald-section');
+gerald.classList.add('centered');
+geraldDialogue.textContent = "I'm gonna make you my bitch";
 
 playButton.addEventListener('click', start)
 
@@ -123,6 +126,7 @@ function reset() {
 
 function start() {
     display.style.visibility = 'visible';
+    gerald.classList.remove('centered');
     playButton.style.display = 'none';
     taunt.style.display = 'none';
     instructions.style.display = 'flex';
