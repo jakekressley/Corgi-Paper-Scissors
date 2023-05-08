@@ -124,6 +124,7 @@ h2 {
     gap: 20px;
     height: 200px;
     margin: 0;
+    margin-top: 20px;
     padding: 0;
 }
 
@@ -154,9 +155,10 @@ h2 {
     font-size: 64px;
     font-weight: bold;
     height: 100px;
-    margin-bottom: 50px;
+    margin: 0;
 }
 
 #play-again {
     visibility: hidden;
+    margin-top: 30px;
 }
